@@ -53,7 +53,6 @@
 	
 		...
 
-
 ###JDBC 工具类构建
 
 1. 资源释放工作的整合
@@ -69,7 +68,7 @@
 
 
 		最后形成以下代码即可。
-
+	
 		Class.forName("com.mysql.jdbc.Driver");	
 
 3. 使用properties配置文件
@@ -116,7 +115,6 @@
 
 
 		INSERT INTO t_stu VALUES (NULL,'wangqiang2',28)
-
 
 
 		// 1. 获取连接对象
@@ -199,7 +197,6 @@
 				System.out.println("更新失败");
 			}
 
-
 ###使用单元测试，测试代码
 
 1. 定义一个类， TestXXX , 里面定义方法 testXXX.
@@ -236,12 +233,11 @@
 			void findAll();
 		}
 
-
 2. 新建一个dao的实现类，具体实现早前定义的规则
 
 
 		public class UserDaoImpl implements UserDao{
-
+	
 		@Override
 		public void findAll() {
 			Connection conn = null;
@@ -285,7 +281,7 @@
 
 
 		String sql = "select * from t_user where username='"+ username  +"' and password='"+ password +"'";
-
+	
 		UserDao dao = new UserDaoImpl();
 		dao.login("admin", "100234khsdf88' or '1=1");
 	
@@ -293,7 +289,6 @@
 	
 		前面先拼接sql语句， 如果变量里面带有了 数据库的关键字，那么一并认为是关键字。 不认为是普通的字符串。 
 		rs = st.executeQuery(sql);
-
 
 ## PrepareStatement
 
@@ -308,7 +303,6 @@
 			 //给占位符赋值 从左到右数过来，1 代表第一个问号， 永远你是1开始。
 			 ps.setString(1, userName);
 			 ps.setString(2, password);
-
 
 ​	
 
@@ -335,15 +329,14 @@
 
 	1. dao里面声明 增删查改， 以及登录的方法
 
-
 		登录方法 ：
-
+	
 			要求，成功后返回该用户的所有信息。 字段不限。
-
+	
 		查询：
-
+	
 			如果是findAll. 肯定是返回一个集合  List<User>
-
+	
 		增加 & 删除 & 更新
-
+	
 			返回影响的行数即可  int类型
