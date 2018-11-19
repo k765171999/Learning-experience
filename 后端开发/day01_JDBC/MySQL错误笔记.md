@@ -23,8 +23,9 @@
 * 解决方法：从错误即可知道是时区的错误，因此只要将时区设置为你当前系统时区即可，
 > 在mysql 语句中输入
 > 
-		SET GLOBAL time_zone='+8:00'
-
+		SET GLOBAL time_zone='+8:00'   
+		或者加上：
+  		&serverTimezone=GMT%2B8
 ##证书问题SSL
 * 在JDBC连接Mysql数据库的过程中出现了如下的警告信息:
 
@@ -42,3 +43,13 @@
 
 		1.在数据库连接的url中添加useSSL=false;  
 		2.url中添加useSSL=true，并且提供服务器的验证证书。
+
+##SQLyog错误2058
+* 解决方法
+		
+		windows 下cmd 登录 mysql -u root -p 登录你的 mysql 数据库，然后 执行这条SQL：
+		
+		 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+		
+		password 是你自己设置的root密码
+
