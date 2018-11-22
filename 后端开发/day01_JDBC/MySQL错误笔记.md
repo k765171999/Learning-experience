@@ -26,6 +26,10 @@
 		SET GLOBAL time_zone='+8:00'   
 		或者加上：
   		&serverTimezone=GMT%2B8
+  
+my.ini根目录
+[icon](img/img05.png)
+
 ##证书问题SSL
 * 在JDBC连接Mysql数据库的过程中出现了如下的警告信息:
 
